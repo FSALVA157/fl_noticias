@@ -1,5 +1,6 @@
 import 'package:fl_noticias/src/models/news_model.dart';
 import 'package:fl_noticias/src/pages/tab1_page.dart';
+import 'package:fl_noticias/src/pages/tab2_page.dart';
 import 'package:fl_noticias/src/services/news_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -60,18 +61,12 @@ class _Paginas extends StatelessWidget {
   Widget build(BuildContext context) {
     final navigationModel = Provider.of<_NavigationModel>(context);
 
-    // final PageController pageController = new PageController(
-    //   initialPage: navigationModel._paginaActual
-    // );
-
     return PageView(
       controller: navigationModel.pageController,
       physics: NeverScrollableScrollPhysics(),
       children: [
         Tab1Screen(),
-        Container(
-          color: Colors.green,
-        )
+        Tab2Screen()
       ],
     );
   }
