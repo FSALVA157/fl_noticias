@@ -72,9 +72,12 @@ class _ButtomCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
+    final newsAgrupadas = Provider.of<NewsServices>(context);
+    
     return GestureDetector(
       onTap: (){
-        print('clicking');
+        final newsAgrupadas = Provider.of<NewsServices>(context, listen: false);
+        newsAgrupadas.category = this.category.name;
       },
       child: Container(
         width: 40,
