@@ -19,8 +19,8 @@ class NewsServices with ChangeNotifier{
   ];
 
   String _category = "business";
-
   String get category => this._category;
+  
 
   set category (String valor){
       this._category = valor;
@@ -30,6 +30,8 @@ class NewsServices with ChangeNotifier{
   
   Map<String, List<Article>> newsAgrupadas={};
 
+
+
   String _base_url = "newsapi.org";
 
   NewsServices(){
@@ -38,6 +40,8 @@ class NewsServices with ChangeNotifier{
           this.newsAgrupadas[item.name] = [];
        });
   }
+
+  List<Article> get listByCategory => this.newsAgrupadas[category]!;
 
   getTopHeadLines() async{
     var url = Uri.https(_base_url, "/v2/top-headlines",{
